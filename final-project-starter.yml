@@ -279,11 +279,9 @@ Resources:
           echo "it works! Udagram, Udacity" > index.html       
       # AMI ID of Ubuntu Server 18.04
       ImageId: ami-0e472ba40eb589f49
-      # ToDo: Change the key-pair name, as applicable to you. 
-      KeyName: aws_rsa_udacity_admin
       SecurityGroups:
       - Ref: WebServerSecGroup
-      InstanceType: t3.medium
+      InstanceType: t3.small
       IamInstanceProfile: !Ref ProfileWithRolesForOurApp
       BlockDeviceMappings:
       - DeviceName: "/dev/sdk"
@@ -356,5 +354,5 @@ Outputs:
   # We output the URL of our load balancer for convenience
   LoadBalancerDNSName:
     Description: The DNSName of the Load Balancer.
-    Value: !GetAtt WebAppLB.DNSName
+    Value: !Sub http://${WebAppLB.DNSName}
   
