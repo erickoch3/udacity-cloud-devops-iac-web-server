@@ -297,8 +297,8 @@ Resources:
         - !Ref PrivateSubnet2
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
-      MinSize: '3'
-      MaxSize: '5'
+      MinSize: '4'
+      MaxSize: '6'
       TargetGroupARNs:
       - Ref: WebAppTargetGroup
 
